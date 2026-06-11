@@ -1,0 +1,45 @@
+# Virtual environment
+  venv/
+  env/
+  .venv/
+  bin/
+  lib/
+  include/
+  share/
+  etc/
+  pyvenv.cfg
+
+  # Python
+  __pycache__/
+  *.py[cod]
+  *$py.class
+  *.egg-info/
+  dist/
+  build/
+
+  # Jupyter
+  .ipynb_checkpoints/
+
+  # Environment and credentials
+  .env
+  .env.local
+  .env.*
+  *.pem
+  *.key
+  .aws/
+  credentials
+
+  # Data files (download via HuggingFace)
+  data/*.csv
+  data/*.json
+  data/*.parquet
+
+  # OS
+  .DS_Store
+  Thumbs.db
+
+  # IDE
+  .vscode/
+  .idea/
+  *.swp
+  *.swo
