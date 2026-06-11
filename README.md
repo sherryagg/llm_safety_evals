@@ -1,3 +1,15 @@
+## Author
+**Sherry Aggarwal**  
+Senior BI Engineer → AI Safety Researcher  
+[LinkedIn](https://www.linkedin.com/in/sherry-aggarwal-a2207535/)
+
+![Python](https://img.shields.io/badge/Python-3.9-blue)
+![AWS](https://img.shields.io/badge/AWS-Bedrock-orange)
+![Claude](https://img.shields.io/badge/Claude-3%20Sonnet-purple)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+*Part of a broader transition into AI safety 
+and evaluation research.*
 # LLM Safety Evaluation Framework
 
 Systematic evaluation of AI safety alignment using Anthropic's HH-RLHF dataset, comparing rule-based classification against LLM-as-judge (Claude 3 Sonnet) approaches.
@@ -12,6 +24,8 @@ This project investigates how well simple keyword-based rules detect unsafe cont
 4. **Compare with and without context** — measuring how conversation history changes safety classifications
 
 ## Key Findings
+| 100% of dataset examples are multi-turn | 
+Single-turn evaluation is fundamentally incomplete |
 
 | Metric | Result |
 |--------|--------|
@@ -30,6 +44,12 @@ This project investigates how well simple keyword-based rules detect unsafe cont
 | safe | 8 | 5 | -3 |
 | context_dependent | 4 | 2 | -2 |
 | unsafe_bias | 0 | 1 | +1 |
+
+## Visualisations
+
+![Rule vs Claude Comparison](results/rule_vs_claude_comparison.png)
+
+![Run 1 vs Run 2 Context Impact](results/run1_vs_run2_comparison.png)
 
 **Takeaway:** Providing conversation context resolves ambiguity — most "ambiguous" and "context_dependent" cases resolved to "unsafe" when the full conversation was visible.
 
@@ -86,8 +106,8 @@ llm_safety_evals/
 
 ```bash
 # Create virtual environment
-python3.9 -m venv venv
-source venv/bin/activate
+python3.9 -m venv llm_evals_env
+source llm_evals_env/bin/activate
 
 # Install dependencies
 pip install datasets pandas matplotlib boto3
@@ -95,7 +115,14 @@ pip install datasets pandas matplotlib boto3
 # Configure AWS credentials for Bedrock access
 # (requires appropriate IAM role)
 ```
-
+## Limitations
+- Sample size of 100 examples may not be representative
+- Claude-as-judge introduces self-evaluation bias 
+  (Claude judging Claude's training data)
+- Severe cases auto-flagged rather than LLM evaluated
+- Rule-based baseline intentionally simple 
+  to demonstrate contrast
+  
 ## Next Steps
 
 - [ ] Expand evaluation to full HH-RLHF dataset (44k examples)
