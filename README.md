@@ -1,15 +1,4 @@
-## Author
-**Sherry Aggarwal**  
-Senior BI Engineer → AI Safety Researcher  
-[LinkedIn](https://www.linkedin.com/in/sherry-aggarwal-a2207535/)
 
-![Python](https://img.shields.io/badge/Python-3.9-blue)
-![AWS](https://img.shields.io/badge/AWS-Bedrock-orange)
-![Claude](https://img.shields.io/badge/Claude-3%20Sonnet-purple)
-![License](https://img.shields.io/badge/license-MIT-green)
-
-*Part of a broader transition into AI safety 
-and evaluation research.*
 # LLM Safety Evaluation Framework
 
 Systematic evaluation of AI safety alignment using Anthropic's HH-RLHF dataset, comparing rule-based classification against LLM-as-judge (Claude 3 Sonnet) approaches.
@@ -24,14 +13,13 @@ This project investigates how well simple keyword-based rules detect unsafe cont
 4. **Compare with and without context** — measuring how conversation history changes safety classifications
 
 ## Key Findings
-| 100% of dataset examples are multi-turn | 
-Single-turn evaluation is fundamentally incomplete |
 
 | Metric | Result |
 |--------|--------|
-| Rule-based classification error rate | **87.5%** (missed 77/88 unsafe prompts labelled "safe") |
-| Examples where context changed classification | **18%** (18/100 shifted category between Run 1 and Run 2) |
-| Severe safety violations discovered | **7** (prompts involving violence, assault, or exploitation) |
+| Rule-based classification error rate | **87.5%** (missed 77/88 unsafe prompts) |
+| Context changed classification | **18%** of examples shifted category |
+| Severe safety violations found | **7** examples auto-flagged |
+| Multi-turn conversation rate | **100%** — single-turn eval fundamentally incomplete |
 
 ### Results Comparison: Run 1 (No Context) vs Run 2 (Full Context)
 
@@ -131,3 +119,16 @@ pip install datasets pandas matplotlib boto3
 - [ ] Build automated pipeline for continuous safety benchmarking
 - [ ] Extract reusable evaluation functions into `src/` modules
 - [ ] Add confidence calibration analysis for LLM judge scores
+
+## Author
+**Sherry Aggarwal**  
+Senior BI Engineer → AI Safety Researcher  
+[LinkedIn](https://www.linkedin.com/in/sherry-aggarwal-a2207535/)
+
+![Python](https://img.shields.io/badge/Python-3.9-blue)
+![AWS](https://img.shields.io/badge/AWS-Bedrock-orange)
+![Claude](https://img.shields.io/badge/Claude-3%20Sonnet-purple)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+*Part of a broader transition into AI safety 
+and evaluation research.*
